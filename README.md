@@ -1,1 +1,1 @@
-EL código calcula la ruta de menios costo de una matriz
+EL código calcula la ruta de menos costo de una matriz
