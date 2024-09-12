@@ -5,7 +5,9 @@ Crea y corre un nuevo contenedor
 PS C:\Users\kiovahn> docker run --name dockerproxy -d -p 8080:80 nginx
 ```
 Comprobar que nginx está corriendo en [127.0.0.1:8080](127.0.0.1:8080)
+```
 image
+```
 Consulta de las imagenes de docker
 ``` Batchfile
 PS C:\Users\kiovahn> docker ps -a
@@ -16,11 +18,10 @@ Se copia el ID de la imagen
 ``` Batchfile
 PS C:\Users\kiovahn> docker exec -it 04da54428248 bash
 ```
-Agregar usuario
+Agregar usuario. Después de teclear el password, podemos darle enter a lo demás, sin rellenar la información.
 ``` Batchfile
 root@04da54428248:/# adduser fire
 ```
-Después de teclear el password, podemos darle enter a lo demás, sin rellenar la información.
 Correr apt update. Instalar python, python-venv, python-pip, vim
 ``` Batchfile
 root@04da54428248:/# apt update
@@ -105,13 +106,11 @@ root@04da54428248:/# su fire
 fire@04da54428248:/$ cd home/fire/
 fire@04da54428248:~$ source firesenv/bin/activate
 ```
-image
-Correr el archivo test
+Correr el archivo test con flask
 ``` Batchfile
 (firesenv) fire@04da54428248:~$ flask --app test run
 ```
 image
-
 
 
 
