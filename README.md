@@ -29,7 +29,7 @@ fire@04da54428248:~$ python3 -m venv firesenv
 fire@04da54428248:~$ source firesenv/bin/activate
 (firesenv) fire@04da54428248:~$ vim test.py
 ```
-``` Batchfile
+``` python
 from flask import Flask
 
 app = Flask(__name__)
@@ -38,3 +38,68 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hola soy fire</p>"
 ```
+ESC
+:wq (write, quit)
+``` Batchfile
+(firesenv) fire@04da54428248:~$ pip install flask
+(firesenv) fire@04da54428248:~$ deactivate
+fire@04da54428248:~$ exit
+root@04da54428248:/# cd /
+root@04da54428248:/# cd etc/nginx/conf.d/
+root@04da54428248:/etc/nginx/conf.d# ls
+default.conf
+root@04da54428248:/etc/nginx/conf.d# vim default.conf
+```
+ I para modo INSERT
+Agregamos un nuevo location (cuadro morado)
+image
+ESC
+:wq (write, quit)
+``` Batchfile
+root@04da54428248:/etc/nginx/conf.d# su fire
+fire@04da54428248:/etc/nginx/conf.d$ cd /
+fire@04da54428248:/$ cd home
+fire@04da54428248:/home$ cd fire
+fire@04da54428248:~$ source firesenv/bin/activate
+(firesenv) fire@04da54428248:~$ vim test.py
+```
+ I para modo INSERT
+image
+``` python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/webpage")
+def hello_world():
+    return "<p>Hola soy fire</p>"
+```
+ESC
+:wq (write, quit)
+
+``` Batchfile
+(firesenv) fire@04da54428248:~$ deactivate
+fire@04da54428248:~$ exit
+root@04da54428248:/# nginx -s reload
+root@04da54428248:/# su fire
+fire@04da54428248:/$ cd home/fire/
+fire@04da54428248:~$ source firesenv/bin/activate
+```
+image
+``` Batchfile
+(firesenv) fire@04da54428248:~$ flask --app test run
+```
+image
+
+
+
+
+
+
+
+
+
+
+
+
+
