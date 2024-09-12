@@ -4,10 +4,9 @@ Crea y corre un nuevo contenedor
 ``` Batchfile
 PS C:\Users\kiovahn> docker run --name dockerproxy -d -p 8080:80 nginx
 ```
-Comprobar que nginx está corriendo en [127.0.0.1:8080](127.0.0.1:8080)
-```
-image
-```
+Comprobar que nginx está corriendo en [127.0.0.1:8080](http://127.0.0.1:8080)
+![Screenshot 2024-09-11 235122](https://github.com/user-attachments/assets/c27f9e4e-1751-41ce-aca4-c582c283e1cb)
+
 Consulta de las imagenes de docker
 ``` Batchfile
 PS C:\Users\kiovahn> docker ps -a
@@ -54,8 +53,8 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hola soy fire</p>"
 ```
-ESC
-:wq (write, quit)
+> ESC (salir de modo INSERT), :wq (write, quit)
+
 Instalar flask, desactivar venv, salir de usuario
 ``` Batchfile
 (firesenv) fire@04da54428248:~$ pip install flask
@@ -70,11 +69,14 @@ root@04da54428248:/etc/nginx/conf.d# ls
 default.conf
 root@04da54428248:/etc/nginx/conf.d# vim default.conf
 ```
- I para modo INSERT
+> I (modo INSERT)
+
 Agregamos un nuevo location (cuadro morado)
-image
-ESC
-:wq (write, quit)
+
+![Screenshot 2024-09-12 012020](https://github.com/user-attachments/assets/dbbf5b67-f00a-4d3e-900a-6ca15dca6564)
+
+> ESC (salir de modo INSERT), :wq (write, quit)
+
 Entrar al usuario, navegar al directorio mostrado, activar venv y editar el archivo creado anteriormente
 ``` Batchfile
 root@04da54428248:/etc/nginx/conf.d# su fire
@@ -84,7 +86,8 @@ fire@04da54428248:/home$ cd fire
 fire@04da54428248:~$ source firesenv/bin/activate
 (firesenv) fire@04da54428248:~$ vim test.py
 ```
- I para modo INSERT
+> I (modo INSERT)
+
 Agregar _webpage_ dentro de los ()
 ``` python
 from flask import Flask
@@ -95,8 +98,8 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hola soy fire</p>"
 ```
-ESC
-:wq (write, quit)
+> ESC (salir de modo insert), :wq (write, quit)
+
 Desactivar venv y salir de usuario. Recargar nginx. Entrar a usuario, activar venv
 ``` Batchfile
 (firesenv) fire@04da54428248:~$ deactivate
