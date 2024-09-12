@@ -110,7 +110,8 @@ Correr el archivo test con flask
 ``` Batchfile
 (firesenv) fire@04da54428248:~$ flask --app test run
 ```
-image
+![Screenshot 2024-09-12 013256](https://github.com/user-attachments/assets/f99e21a8-5bc3-4eeb-8068-8ca7ff0dde73)
+
 
 
 
