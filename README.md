@@ -53,6 +53,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hola soy fire</p>"
 ```
+> [!NOTE]
 > ESC (salir de modo INSERT), :wq (write, quit)
 
 Instalar flask, desactivar venv, salir de usuario
@@ -69,12 +70,14 @@ root@04da54428248:/etc/nginx/conf.d# ls
 default.conf
 root@04da54428248:/etc/nginx/conf.d# vim default.conf
 ```
+> [!NOTE]
 > I (modo INSERT)
 
 Agregamos un nuevo location (cuadro morado)
 
 ![Screenshot 2024-09-12 012020](https://github.com/user-attachments/assets/dbbf5b67-f00a-4d3e-900a-6ca15dca6564)
 
+> [!NOTE]
 > ESC (salir de modo INSERT), :wq (write, quit)
 
 Entrar al usuario, navegar al directorio mostrado, activar venv y editar el archivo creado anteriormente
@@ -86,6 +89,7 @@ fire@04da54428248:/home$ cd fire
 fire@04da54428248:~$ source firesenv/bin/activate
 (firesenv) fire@04da54428248:~$ vim test.py
 ```
+> [!NOTE]
 > I (modo INSERT)
 
 Agregar _webpage_ dentro de los ()
@@ -98,6 +102,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hola soy fire</p>"
 ```
+> [!NOTE]
 > ESC (salir de modo insert), :wq (write, quit)
 
 Desactivar venv y salir de usuario. Recargar nginx. Entrar a usuario, activar venv
