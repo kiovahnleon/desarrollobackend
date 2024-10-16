@@ -120,6 +120,79 @@ Correr el archivo test con flask
 ```
 ![Screenshot 2024-09-12 013256](https://github.com/user-attachments/assets/f99e21a8-5bc3-4eeb-8068-8ca7ff0dde73)
 
+# Sesiones
+En seguimiento a la práctica de docker proxy, ahora probaremos el funcionamiento de sesiones en flask, basado en https://flask.palletsprojects.com/en/3.0.x/quickstart/#sessions
+
+kiovahn@Kiovahns--MacBook-Air ~ % docker exec -it dockerproxy bash
+```Batchfile
+root@d832bc1a087a:/# cd home/fire
+root@d832bc1a087a:/home/fire# source firesenv/bin/activate
+(firesenv) root@d832bc1a087a:/home/fire# vim test.py
+```
+Reemplazar el codigo python anterior con este:
+```python
+from flask import Flask, session, request, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route("/webpage")
+def hello_world():
+    return "<p>Hola soy fire</p>"
+
+# Set the secret key to some random bytes. Keep this really secret!
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+@app.route('/')
+def index():
+    if 'username' in session:
+        return f'Logged in as {session["username"]}'
+    return 'You are not logged in'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    return '''
+        <form method="post">
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>
+        </form>
+    '''
+
+@app.route('/logout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('index'))
+```
+
+Abrir otra terminal y entrar al contenedor con
+
+```Batchfile
+kiovahn@Kiovahns--MacBook-Air ~ % docker exec -it dockerproxy bash
+```
+```Batchfile
+root@d832bc1a087a:/# cd etc/nginx/conf.d
+root@d832bc1a087a:/etc/nginx/conf.d# vim default.conf
+```
+
+Agregar las sig. líneas:
+
+<img width="830" alt="Screenshot 2024-10-16 at 4 24 53 PM" src="https://github.com/user-attachments/assets/1487bdeb-bdb7-4baf-b2da-7b964b50263a">
+
+Salir del contenedor de docker con el comando exit
+
+kiovahn@Kiovahns--MacBook-Air ~ % docker restart dockerproxy
+
+Regresar a la primer terminal y correr 
+
+```Batchfile
+(firesenv) root@d832bc1a087a:/home/fire# flask --app test run
+```
+
+<img width="751" alt="Screenshot 2024-10-16 at 4 30 29 PM" src="https://github.com/user-attachments/assets/888b358f-2a4d-496c-923d-b61dd5bfd67d">
+
 
 
 
